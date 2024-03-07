@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.sxgan</groupId>
+    <artifactId>spring-cloud-example</artifactId>
+    <version>1.0.0</version>
+    <!-- create by 2024/03/06 -->
+    <name>spring-cloud-example</name>
+    <url>https://github.com/sxgan-code/spring-cloud-example</url>
+    <modules>
+        <module>business-user</module>
+        <module>business-order</module>
+        <module>zoey-common</module>
+        <module>dubbo-interface</module>
+    </modules>
+    <description>spring cloud example</description>
+    <packaging>pom</packaging>
+
+    <properties>
+        <zoey.version>1.0.0</zoey.version>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- Project version -->
+        <!--版本说明：https://github.com/alibaba/spring-cloud-alibaba/wiki/-->
+        <spring-boot.version>3.2.3</spring-boot.version>
+        <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <spring-cloud-alibaba.version>2023.0.0.0-RC1</spring-cloud-alibaba.version>
+
+        <!-- 微服务相关 -->
+        <dubbo.version>3.3.0-beta.1</dubbo.version>
+        <zookeeper.version>3.7.0</zookeeper.version>
+
+        <!-- DB 相关 -->
+        <mysql-connector-j.vision>8.3.0</mysql-connector-j.vision>
+        <druid-spring-boot-starter.version>1.2.21</druid-spring-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.5.3.2</mybatis-plus-boot-starter.version>
+
+
+        <!-- 辅助工具-->
+        <lombok.version>1.18.30</lombok.version>
+        <springdoc-openapi-starter.version>2.3.0</springdoc-openapi-starter.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <jakarta.servlet-api.versoin>6.0.0</jakarta.servlet-api.versoin>
+        <guava.version>33.0.0-jre</guava.version>
+        <hutool.version>5.8.26</hutool.version>
+        <!-- <velocity.version>2.3</velocity.version> -->
+        <!--<fastjson.version>2.0.38</fastjson.version>-->
+
+        <!--<dynamic-datasource.version>3.6.1</dynamic-datasource.version>-->
+        <!--<mybatis-plus-join-boot-starter.version>1.4.5</mybatis-plus-join-boot-starter.version>-->
+        <!--<redisson.version>3.18.0</redisson.version>-->
+        <!--<dm8.jdbc.version>8.1.2.141</dm8.jdbc.version>-->
+        <!--&lt;!&ndash; Other version &ndash;&gt;-->
+        <!--<pagehelper.boot.version>1.4.6</pagehelper.boot.version>-->
+
+        <!-- 服务保障相关 -->
+        <!--<lock4j.version>2.2.3</lock4j.version>-->
+        <!--<resilience4j.version>1.7.1</resilience4j.version>-->
+        <!-- 监控相关 -->
+        <!--<skywalking.version>8.12.0</skywalking.version>-->
+        <!--<spring-boot-admin.version>2.7.10</spring-boot-admin.version>-->
+        <!--<opentracing.version>0.33.0</opentracing.version>-->
+        <!-- Test 测试相关 -->
+        <!--<podam.version>7.2.11.RELEASE</podam.version>-->
+        <!--<jedis-mock.version>1.0.7</jedis-mock.version>-->
+        <!--<mockito-inline.version>4.11.0</mockito-inline.version>-->
+        <!-- Bpm 工作流相关 -->
+        <!--<flowable.version>6.8.0</flowable.version>-->
+        <!-- 工具类相关 -->
+        <!--<captcha-plus.version>1.0.5</captcha-plus.version>-->
+        <!--<jsoup.version>1.15.4</jsoup.version>-->
+        <!--<easyexcel.verion>3.3.2</easyexcel.verion>-->
+
+        <!--<screw.version>1.0.5</screw.version>-->
+        <!--<fastjson.version>1.2.83</fastjson.version>-->
+        <!--<guice.version>5.1.0</guice.version>-->
+        <!--<transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>-->
+        <!--<commons-net.version>3.9.0</commons-net.version>-->
+        <!--<jsch.version>0.1.55</jsch.version>-->
+        <!--<tika-core.version>2.7.0</tika-core.version>-->
+        <!--<netty-all.version>4.1.90.Final</netty-all.version>-->
+        <!--<ip2region.version>2.7.0</ip2region.version>-->
+        <!-- 三方云服务相关 -->
+        <!--<okio.version>3.0.0</okio.version>-->
+        <!--<okhttp3.version>4.10.0</okhttp3.version>-->
+        <!--<commons-io.version>2.11.0</commons-io.version>-->
+        <!--<minio.version>8.5.4</minio.version>-->
+        <!--<aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>-->
+        <!--<aliyun-java-sdk-dysmsapi.version>2.2.1</aliyun-java-sdk-dysmsapi.version>-->
+        <!--<tencentcloud-sdk-java.version>3.1.758</tencentcloud-sdk-java.version>-->
+        <!--<justauth.version>1.0.1</justauth.version>-->
+        <!--<jimureport.version>1.5.8</jimureport.version>-->
+        <!--<xercesImpl.version>2.12.2</xercesImpl.version>-->
+        <!--<weixin-java.version>4.5.0</weixin-java.version>-->
+    </properties>
+
+    <!-- 依赖声明 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring boot-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--spring cloud-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--spring cloud alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 微服务相关 -->
+            <!-- Dubbo -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-bom</artifactId>
+                <version>${dubbo.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-dependencies-zookeeper-curator5</artifactId>
+                <version>${dubbo.version}</version>
+                <type>pom</type>
+            </dependency>
+
+            <!-- 数据库-->
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql-connector-j.vision}</version>
+            </dependency>
+            <!-- 阿里数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+            <!-- 代码生成器-->
+            <!-- <dependency> -->
+            <!--     <groupId>com.baomidou</groupId> -->
+            <!--     <artifactId>mybatis-plus-generator</artifactId> -->
+            <!--     <version>${mybatis-plus.version}</version> -->
+            <!-- </dependency> -->
+            <!-- &lt;!&ndash; velocity代码生成使用模板 &ndash;&gt; -->
+            <!-- <dependency> -->
+            <!--     <groupId>org.apache.velocity</groupId> -->
+            <!--     <artifactId>velocity-engine-core</artifactId> -->
+            <!--     <version>${velocity.version}</version> -->
+            <!-- </dependency> -->
+
+            <!-- 辅助工具-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <!-- Api文档-->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc-openapi-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+                <version>${springdoc-openapi-starter.version}</version>
+            </dependency>
+            <!-- servlet api -->
+            <dependency>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
+                <version>${jakarta.servlet-api.versoin}</version>
+            </dependency>
+            <!-- 对象转换-->
+            <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <!-- hutool工具集-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- 阿里JSON解析器 -->
+            <!--<dependency>-->
+            <!--    <groupId>com.alibaba.fastjson2</groupId>-->
+            <!--    <artifactId>fastjson2</artifactId>-->
+            <!--    <version>${fastjson.version}</version>-->
+            <!--</dependency>-->
+            <!-- Swagger3依赖 -->
+
+            <!--<dependency>-->
+            <!--    <groupId>io.springfox</groupId>-->
+            <!--    <artifactId>springfox-boot-starter</artifactId>-->
+            <!--    <version>${swagger.version}</version>-->
+            <!--    <exclusions>-->
+            <!--        <exclusion>-->
+            <!--            <groupId>io.swagger</groupId>-->
+            <!--            <artifactId>swagger-models</artifactId>-->
+            <!--        </exclusion>-->
+            <!--    </exclusions>-->
+            <!--</dependency>-->
+
+            <!--&lt;!&ndash; 验证码 &ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>pro.fessional</groupId>-->
+            <!--    <artifactId>kaptcha</artifactId>-->
+            <!--    <version>${kaptcha.version}</version>-->
+            <!--</dependency>-->
+
+            <!--&lt;!&ndash; thymeleaf模板引擎和shiro框架的整合 &ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>com.github.theborakompanioni</groupId>-->
+            <!--    <artifactId>thymeleaf-extras-shiro</artifactId>-->
+            <!--    <version>${thymeleaf.extras.shiro.version}</version>-->
+            <!--</dependency>-->
+
+            <!--&lt;!&ndash; 解析客户端操作系统、浏览器等 &ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>eu.bitwalker</groupId>-->
+            <!--    <artifactId>UserAgentUtils</artifactId>-->
+            <!--    <version>${bitwalker.version}</version>-->
+            <!--</dependency>-->
+
+            <!--&lt;!&ndash; 获取系统信息 &ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>com.github.oshi</groupId>-->
+            <!--    <artifactId>oshi-core</artifactId>-->
+            <!--    <version>${oshi.version}</version>-->
+            <!--</dependency>-->
+
+
+            <!--&lt;!&ndash; pagehelper 分页插件 &ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>com.github.pagehelper</groupId>-->
+            <!--    <artifactId>pagehelper-spring-boot-starter</artifactId>-->
+            <!--    <version>${pagehelper.boot.version}</version>-->
+            <!--</dependency>-->
+            <!--&lt;!&ndash; io常用工具类 &ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>commons-io</groupId>-->
+            <!--    <artifactId>commons-io</artifactId>-->
+            <!--    <version>${commons.io.version}</version>-->
+            <!--</dependency>-->
+
+
+            <!-- 预留工具-->
+
+            <!--&lt;!&ndash; excel工具 &ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>org.apache.poi</groupId>-->
+            <!--    <artifactId>poi-ooxml</artifactId>-->
+            <!--    <version>${poi.version}</version>-->
+            <!--</dependency>-->
+
+
+            <!-- 定时任务-->
+            <!--<dependency>-->
+            <!--    <groupId>com.zoey</groupId>-->
+            <!--    <artifactId>zoey-quartz</artifactId>-->
+            <!--    <version>${zoey.version}</version>-->
+            <!--</dependency>-->
+
+            <!--&lt;!&ndash; 代码生成&ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>com.zoey</groupId>-->
+            <!--    <artifactId>zoey-generator</artifactId>-->
+            <!--    <version>${zoey.version}</version>-->
+            <!--</dependency>-->
+
+            <!--&lt;!&ndash; 核心模块&ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>com.zoey</groupId>-->
+            <!--    <artifactId>zoey-framework</artifactId>-->
+            <!--    <version>${zoey.version}</version>-->
+            <!--</dependency>-->
+
+            <!--&lt;!&ndash; 系统模块&ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>com.zoey</groupId>-->
+            <!--    <artifactId>zoey-system</artifactId>-->
+            <!--    <version>${zoey.version}</version>-->
+            <!--</dependency>-->
+
+            <!--&lt;!&ndash; 通用工具&ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>com.zoey</groupId>-->
+            <!--    <artifactId>zoey-common</artifactId>-->
+            <!--    <version>${zoey.version}</version>-->
+            <!--</dependency>-->
+            <!-- Shiro核心框架 -->
+            <!-- <dependency>
+                 <groupId>org.apache.shiro</groupId>
+                 <artifactId>shiro-core</artifactId>
+                 <version>${shiro.version}</version>
+             </dependency>
+
+             &lt;!&ndash; Shiro使用Spring框架 &ndash;&gt;
+             <dependency>
+                 <groupId>org.apache.shiro</groupId>
+                 <artifactId>shiro-spring</artifactId>
+                 <version>${shiro.version}</version>
+             </dependency>
+
+             &lt;!&ndash; Shiro使用EhCache缓存框架 &ndash;&gt;
+             <dependency>
+                 <groupId>org.apache.shiro</groupId>
+                 <artifactId>shiro-ehcache</artifactId>
+                 <version>${shiro.version}</version>
+             </dependency>-->
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>apache.snapshots.https</id>
+            <name>Apache Development Snapshot Repository</name>
+            <url>https://repository.apache.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>apache.snapshots.https</id>
+            <name>Apache Development Snapshot Repository</name>
+            <url>https://repository.apache.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</project>
