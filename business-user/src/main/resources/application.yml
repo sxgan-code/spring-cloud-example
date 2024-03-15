@@ -11,6 +11,7 @@ spring:
     name: user-server
 
 dubbo:
+
   scan:
     base-packages: cn.sxgan.cloud.service
   registry:
@@ -21,3 +22,5 @@ dubbo:
   # 暂时关闭，以免端口冲突
   application:
     qos-enable: false
+  metadata-report:
+    address: zookeeper://192.168.0.200:2181

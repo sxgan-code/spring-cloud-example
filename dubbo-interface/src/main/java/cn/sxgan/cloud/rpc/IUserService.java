@@ -1,5 +1,7 @@
 package cn.sxgan.cloud.rpc;
 
+import cn.sxgan.cloud.entity.User;
+
 /**
  * @Description: 用户服务接口
  * @Author: sxgan
@@ -14,5 +16,5 @@ public interface IUserService {
      * @param userId
      * @return
      */
-    String getUserNameByUserId(Long userId);
+    User getUserByUserId(Long userId);
 }

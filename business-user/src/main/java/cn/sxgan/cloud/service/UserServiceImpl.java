@@ -1,5 +1,6 @@
 package cn.sxgan.cloud.service;
 
+import cn.sxgan.cloud.entity.User;
 import cn.sxgan.cloud.rpc.IUserService;
 import org.apache.dubbo.config.annotation.DubboService;
 
@@ -13,10 +14,11 @@ import org.apache.dubbo.config.annotation.DubboService;
 @DubboService
 public class UserServiceImpl implements IUserService {
     @Override
-    public String getUserNameByUserId(Long userId) {
-
-        // 此处模拟查询到用户名
-        String name = "张三";
-        return name;
+    public User getUserByUserId(Long userId) {
+        User user = new User();
+        user.setUserId(userId);
+        user.setUserName("张三");
+        user.setPassword("666666");
+        return user;
     }
 }

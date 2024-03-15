@@ -1,6 +1,8 @@
 package cn.sxgan.cloud.controller;
 
+import cn.sxgan.cloud.entity.User;
 import cn.sxgan.cloud.rpc.IUserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 
 @RestController
+@Slf4j
 @RequestMapping("/order")
 public class OrderController {
 
@@ -20,11 +23,11 @@ public class OrderController {
     IUserService userService;
 
     @RequestMapping("/getOrder")
-    public String getOrder() {
+    public User getOrder() {
         Long userId = 1001L;
-        String userName = userService.getUserNameByUserId(userId);
-        // 此处模拟订单
-        String order = "orderId:0001,userName:" + userName;
-        return order;
+        User user = userService.getUserByUserId(userId);
+        log.info(user.toString());
+        // 此处方便展示，直接返回用户
+        return user;
     }
 }
