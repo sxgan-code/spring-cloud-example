@@ -1,5 +1,6 @@
 package cn.sxgan.cloud.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.sxgan.cloud.entity.User;
 import cn.sxgan.cloud.rpc.IUserService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,14 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order")
 public class OrderController {
 
-    @DubboReference
+    @DubboReference(version = "v2.0.0", mock = "force:throw java.lang.NullPointException")
     IUserService userService;
 
     @RequestMapping("/getOrder")
     public User getOrder() {
         Long userId = 1001L;
         User user = userService.getUserByUserId(userId);
-        log.info(user.toString());
+        if (BeanUtil.isNotEmpty(user)) {
+            log.info(user.toString());
+        }
         // 此处方便展示，直接返回用户
         return user;
     }

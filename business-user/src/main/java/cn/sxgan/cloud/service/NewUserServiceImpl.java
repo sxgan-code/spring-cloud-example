@@ -7,23 +7,23 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
 
 /**
- * @Description: 用户服务实现类
+ * @Description: 新版用户服务实现类
  * @Author: sxgan
- * @Date: 2024-03-07 18:29
+ * @Date: 2024/3/27 10:54
  * @Version: 1.0
  **/
 
-@DubboService(timeout = 3000, retries = 2, weight = 100, version = "v1.0.0")
+@DubboService(timeout = 3000, version = "v2.0.0")
 @Slf4j
-public class UserServiceImpl implements IUserService {
+public class NewUserServiceImpl implements IUserService {
 
     int count = 1;
 
     @Override
     public User getUserByUserId(Long userId) {
-        log.info("UserServiceImpl.getUserByUserId 服务调用第{}次", count++);
+        log.info("NewUserServiceImpl.getUserByUserId 服务调用第{}次", count++);
         //  模拟数据库查询2秒
-        CommonUtils.sleep(2000);
+        CommonUtils.sleep(4000);
         User user = new User();
         user.setUserId(userId);
         user.setUserName("张三");
